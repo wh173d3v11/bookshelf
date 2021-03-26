@@ -1,17 +1,27 @@
 package com.books.shelf.room;
 
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.TypeConverters;
+
+import com.books.shelf.common.MyTypeConverters;
 
 import java.util.List;
-
+@Dao
 public interface TaskDao {
-    @Query("SELECT * FROM task ")
-    List<Task> getAll();
+
+    @Query("SELECT * FROM task")
+    LiveData<List<Task>> getAll();
 
     @Insert
     void insert(Task task);
 
+    @Query("DELETE FROM Task")
+    void delete();
 //    @Query("DELETE FROM task WHERE id=:id")
 //    void delete(int id);
 

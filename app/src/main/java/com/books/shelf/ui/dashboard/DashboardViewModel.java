@@ -1,34 +1,25 @@
 package com.books.shelf.ui.dashboard;
 
-import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
-import com.books.shelf.BookRepository;
-import com.books.shelf.network.ApiResponse;
-import com.books.shelf.network.Book;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
+import com.books.shelf.repo.DataRepository;
+import com.books.shelf.room.Task;
 
 import java.util.List;
 
-public class DashboardViewModel extends ViewModel {
-    private MediatorLiveData<ApiResponse> mApiResponse;
-    private final BookRepository mApiRepo;
 
-    public DashboardViewModel() {
-        mApiResponse = new MediatorLiveData<>();
-        mApiRepo = new BookRepository();
-    }
+public class DashboardViewModel extends AndroidViewModel {
+    private DataRepository mRepository;
 
-    public MutableLiveData<ApiResponse> getData() {
-        mApiResponse.addSource(mApiRepo.getBooks(), new Observer<ApiResponse>() {
-            @Override
-            public void onChanged(@Nullable ApiResponse apiResponse)            {
-                mApiResponse.setValue(apiResponse);
-            }
-        });
-        return mApiResponse;
+    private LiveData<List<Task>> mAllWords;
+
+    public DashboardViewModel (Application application) {
+        super(application);
+        mRepository = new DataRepository(application);
+        mAllWords = mRepository.getAllWords();
     }
+    LiveData<List<Task>> getAllCats() { return mAllWords; }
 }

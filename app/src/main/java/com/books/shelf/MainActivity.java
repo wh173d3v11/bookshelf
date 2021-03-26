@@ -1,27 +1,23 @@
 package com.books.shelf;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.widget.Toast;
 
-import com.books.shelf.network.ApiClient;
-import com.books.shelf.network.ApiInterface;
-import com.books.shelf.network.Book;
+import com.books.shelf.room.DatabaseClient;
+import com.books.shelf.room.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class MainActivity extends AppCompatActivity {
-    ApiInterface apiService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.navigation_dashboard, R.id.navigation_fav)
+                R.id.navigation_dashboard, R.id.navigation_fav)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -38,19 +34,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void callApi() {
-        apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<Book>> call = apiService.getBooks();
-        call.enqueue(new Callback<List<Book>>() {
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+       // finishAffinity();
+        deleteTask();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+            public void run() {
+                finish();
+            }
+        }, 2000);
 
+    }
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
+        deleteTask();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 2000);
+    }
+    private void deleteTask() {
+        @SuppressLint("StaticFieldLeak")
+        class DeleteTask extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
+                        .taskDao()
+                        .delete();
+                return null;
             }
 
             @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
-                Log.d("TAG","Response = "+t.toString());
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                //Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
             }
-        });
+        }
+
+        DeleteTask dt = new DeleteTask();
+        dt.execute();
+
     }
 }

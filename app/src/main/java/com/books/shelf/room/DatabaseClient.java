@@ -13,7 +13,6 @@ public class DatabaseClient {
 
     private DatabaseClient(Context mCtx) {
         this.mCtx = mCtx;
-
         //creating the app database with Room database builder
         //MyToDos is the name of the database
         appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "BookShelf").build();
