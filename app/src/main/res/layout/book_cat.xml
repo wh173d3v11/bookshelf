@@ -6,26 +6,32 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_margin="2dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="12dp"
+        android:background="#FFF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="8dp"
+        android:id="@+id/catCard"
         app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/tvCAt"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:text="@string/app_name"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="14sp"
+            android:layout_margin="20dp"
+            android:textAllCaps="true"
             android:textColor="@color/purple_200"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
+
+
+
 </RelativeLayout>

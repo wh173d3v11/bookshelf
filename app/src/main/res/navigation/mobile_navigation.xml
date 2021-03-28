@@ -9,11 +9,12 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.books.shelf.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard"></fragment>
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_fav"
         android:name="com.books.shelf.ui.favourite.FavouriteFragment"
         android:label="@string/title_fav"
-        tools:layout="@layout/fragment_favourite"></fragment>
+        tools:layout="@layout/fragment_favourite" />
+
 </navigation>

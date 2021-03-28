@@ -14,7 +14,7 @@ import java.util.List;
 public class DashboardViewModel extends AndroidViewModel {
     private DataRepository mRepository;
 
-    private LiveData<List<Task>> mAllWords;
+    private final LiveData<List<Task>> mAllWords;
 
     public DashboardViewModel (Application application) {
         super(application);

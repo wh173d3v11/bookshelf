@@ -24,7 +24,7 @@ public class BookRepository {
         return bookRepository;
     }
 
-    private ApiInterface apiService;
+    private final ApiInterface apiService;
 
     public BookRepository(){
         apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -43,7 +43,7 @@ public class BookRepository {
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
                 apiResponse.postValue(new ApiResponse(t));
-                Log.d("TAG", "Response = " + t.toString());
+                //Log.d("TAG", "Response = " + t.toString());
             }
         });
         return apiResponse;

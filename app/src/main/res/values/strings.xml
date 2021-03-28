@@ -3,4 +3,6 @@
 
     <string name="title_dashboard">Dashboard</string>
     <string name="title_fav">Favourite</string>
+    <string name="title_set">Settings</string>
+    <string name="book_shelf_is_loading">WELCOME TO BOOKSHELF</string>
 </resources>

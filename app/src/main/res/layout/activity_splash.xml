@@ -14,7 +14,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="-70dp"
-            android:text="Book Shelf is Loading ..!"
+            android:text="@string/book_shelf_is_loading"
             android:textSize="18sp" />
 
 </RelativeLayout>

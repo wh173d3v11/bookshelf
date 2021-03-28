@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#FFF"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="300dp"
+           android:src="@color/purple_200"
+           android:id="@+id/bookThums"
+           android:contentDescription="@string/title_set"/>
+       <ImageView
+           android:id="@+id/NotFavIcon"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:src="@drawable/ic_baseline_favorite_border_24"
+           android:layout_margin="10dp"
+           android:visibility="visible"
+           android:clickable="true"
+           android:focusable="true"
+           android:layout_alignStart="@+id/bookThums"
+           android:layout_alignBottom="@+id/bookThums"
+           android:contentDescription="@string/title_set"/>
+       <ImageView
+           android:id="@+id/FavIcon"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:src="@drawable/ic_baseline_favorite_24"
+           android:layout_margin="10dp"
+           android:visibility="gone"
+           android:clickable="true"
+           android:focusable="true"
+           android:layout_alignStart="@+id/bookThums"
+           android:layout_alignBottom="@+id/bookThums"
+           android:contentDescription="@string/title_set"/>
+   </RelativeLayout>
+</androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#FFF"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/mBookTitle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="17sp"
+            android:text="BOok Title"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/mBookAuthor"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="BOok Authors"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/mBookDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="BOok Date"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/mBookisbn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="isbn"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textSize="14sp"
+            android:id="@+id/sdvisible"
+            android:text="Short Description"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+
+            />
+        <TextView
+            android:id="@+id/mBookShortDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Short Desc"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/londdescCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#FFF"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textSize="14sp"
+            android:text="long Description"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+
+            />
+        <TextView
+            android:id="@+id/mBookLongDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Long Decs"
+            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"/>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>

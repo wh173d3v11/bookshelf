@@ -37,51 +37,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-       // finishAffinity();
-        deleteTask();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        }, 2000);
-
+        finish();
     }
     @Override
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        deleteTask();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                finish();
-            }
-        }, 2000);
-    }
-    private void deleteTask() {
-        @SuppressLint("StaticFieldLeak")
-        class DeleteTask extends AsyncTask<Void, Void, Void> {
-
-            @Override
-            protected Void doInBackground(Void... voids) {
-                DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
-                        .taskDao()
-                        .delete();
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-                //Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG).show();
-            }
-        }
-
-        DeleteTask dt = new DeleteTask();
-        dt.execute();
 
     }
 }

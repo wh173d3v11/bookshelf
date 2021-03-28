@@ -17,8 +17,10 @@ public class DataRepository {
     private LiveData<List<Task>> mAllCats;
 
     public DataRepository(Application application) {
-        AppDatabase db = AppDatabase.getDatabase(application);
-        mTaskDao = db.taskDao();
+       // AppDatabase db = AppDatabase.getDatabase(application);
+
+        DatabaseClient db = DatabaseClient.getInstance(application);
+        mTaskDao = db.getAppDatabase().taskDao();
         mAllCats = mTaskDao.getAll();
     }
 
