@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+
 public class CatAdapter extends RecyclerView.Adapter<CatAdapter.BooksViewHolder> {
     List<Task> bookList;
     Context cxt;

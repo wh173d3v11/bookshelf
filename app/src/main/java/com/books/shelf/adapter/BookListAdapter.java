@@ -25,6 +25,8 @@ import java.security.AccessControlContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
+
 public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BookslistViewHolder> {
 
     ArrayList<Book> bookList;

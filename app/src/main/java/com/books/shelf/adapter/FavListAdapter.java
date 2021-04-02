@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+
 public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.FavlistViewHolder> {
     Context context;
     ArrayList<Book> bookList;

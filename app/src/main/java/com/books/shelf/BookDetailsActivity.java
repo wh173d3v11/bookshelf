@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BookDetailsActivity extends AppCompatActivity {
     BookDetailsViewModel bookDetailsViewModel;
     ImageView bookThums, favIcon, nonFavIcon;

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 public class SplashScreen extends AppCompatActivity {
     ApiInterface apiService;
     SplashViewModel mainViewModel;

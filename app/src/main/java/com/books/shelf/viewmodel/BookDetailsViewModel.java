@@ -12,6 +12,7 @@ import com.books.shelf.room.FavTask;
 
 import java.util.List;
 
+
 public class BookDetailsViewModel extends AndroidViewModel {
     private FavRepository favRepository;
     private final MutableLiveData<List<FavTask>> Allfavs;
